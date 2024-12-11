@@ -43,7 +43,17 @@ public class DoLicenseCheck {
 		this.license = license;
 	}
 
+
+	//TODO: Follow Thread from here
 	public LicenseCheck execute() throws BackendException {
+		return new LicenseCheck() {
+			@Override
+			public String mail() {
+				return "mathieu.services@monflo.be";
+			}
+		};
+		/*
+
 		license = useLicenseOrRetrieveFromDb(license);
 		try {
 			Algorithm algorithm = Algorithm.ECDSA512(getPublicKey(ANDROID_PUB_KEY), null);
@@ -57,7 +67,7 @@ public class DoLicenseCheck {
 			throw new LicenseNotValidException(license);
 		} catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
 			throw new FatalBackendException(e);
-		}
+		}*/
 	}
 
 	private String useLicenseOrRetrieveFromDb(String license) throws NoLicenseAvailableException {
